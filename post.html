@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST (Estilo Discord)</title>
+
+    <style>
+        /* Importa a fonte Roboto (parecida com a do Discord) */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            /* Cor de fundo principal do Discord */
+            background-color: #36393f;
+            /* Cor do texto padrão */
+            color: #dcddde;
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
+            /* Centraliza o container do formulário na página */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Garante que a centralização funcione verticalmente */
+            margin: 0;
+            /* Adiciona padding para o caso do formulário ser muito alto em telas pequenas */
+            padding: 40px 0; 
+        }
+
+        /* O container para o formulário, como um modal do Discord */
+        .form-container {
+            background-color: #2f3136; /* Fundo do "card" */
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px; /* Largura fixa para o formulário */
+            max-width: 90%; /* Garante que não quebre em telas pequenas */
+            box-sizing: border-box; /* Garante que o padding não quebre o layout */
+        }
+
+        h1 {
+            color: #ffffff; /* Título em branco */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Removemos o <form> do layout, mas ele é importante para a semântica */
+        form {
+            display: contents;
+        }
+
+        /* Esta é a nova 'div' que substitui os <br>
+           Ela agrupa o label e o input
+        */
+        .form-group {
+            margin-bottom: 20px; /* Espaçamento entre os campos */
+        }
+
+        label {
+            color: #b9bbbe; /* Cor do texto do label (cinza claro) */
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase; /* Estilo Discord para labels */
+            display: block; /* Faz o label ficar em cima do input */
+            margin-bottom: 8px;
+        }
+
+        /* Estilo unificado para todos os inputs */
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            background-color: #40444b; /* Fundo do input */
+            border: 1px solid #202225; /* Borda sutil */
+            border-radius: 5px;
+            color: #dcddde; /* Cor do texto digitado */
+            padding: 12px;
+            font-size: 16px;
+            width: 100%; /* Ocupa 100% do container */
+            /* Isso é importante para o 'width: 100%' funcionar com 'padding' */
+            box-sizing: border-box; 
+            transition: border-color 0.2s;
+        }
+
+        /* Efeito de Foco (quando clica no input) */
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #5865F2; /* Borda "Blurple" ao focar */
+        }
+
+        /* Botão Enviar (Estilo Principal "Blurple") */
+        button {
+            background-color: #5865F2; /* Cor "Blurple" principal */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Efeito Hover (passar o mouse por cima) */
+        button:hover {
+            background-color: #4752c4; /* "Blurple" um pouco mais escuro */
+        }
+
+        /* * CORREÇÃO: Estilo para o link "Voltar" (para parecer um botão secundário)
+        */
+        .btn-link {
+            display: block; /* Para ter largura e padding */
+            background-color: #4f545c; /* Cinza do Discord (secundário) */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            box-sizing: border-box; 
+            text-decoration: none; /* Remove o sublinhado do link */
+            text-align: center;
+            margin-top: 12px; /* Espaço entre o botão "Enviar" e este */
+        }
+
+        .btn-link:hover {
+            background-color: #5d636d; /* Cinza mais claro no hover */
+        }
+
+    </style>
+    </head>
+<body>
+
+    <div class="form-container">
+        <h1>POST</h1>
+        <form>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome">
+            </div>
+
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome">
+            </div>
+
+            <div class="form-group">
+                <label for="identificadorCPF">CPF:</label>
+                <input type="number" id="identificadorCPF">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha">
+            </div>
+
+            <div class="form-group">
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua">
+            </div>
+
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="number" id="cep">
+            </div>
+
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade">
+            </div>
+
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado">
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="number" id="telefone">
+            </div>
+
+            <!-- Botão principal de envio -->
+            <button type="button" onclick="enviarDados()">Enviar</button>
+            
+            <!-- 
+              * CORREÇÃO: 
+              * Removido o <button> de dentro do <a>.
+              * Aplicada a classe "btn-link" ao <a>.
+              * Corrigido o erro de digitação ("pagina").
+            -->
+            <a href="index.html" class="btn-link">Voltar à Página Inicial</a>
+
+        </form>
+    </div> 
+    <script src="post.js"></script>
+</body>
+</html>

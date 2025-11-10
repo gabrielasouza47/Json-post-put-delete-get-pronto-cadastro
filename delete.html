@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete (Estilo Discord)</title>
+    
+    <style>
+        /* Importa uma fonte parecida com a do Discord (opcional, mas ajuda) */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            /* Cor de fundo principal do Discord */
+            background-color: #36393f;
+            /* Cor do texto principal */
+            color: #dcddde;
+            /* Fonte fallback parecida com a do Discord */
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
+            /* Centraliza tudo na página (substitui o <center>) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Um container para o formulário, como um modal do Discord */
+        .delete-container {
+            background-color: #2f3136; /* Fundo do "card" */
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #ffffff; /* Título em branco */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* * NOVO: Adicionado .form-group (copiado dos outros arquivos) */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            color: #b9bbbe; /* Cor do texto do label (um cinza mais claro) */
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase; /* Estilo Discord para labels */
+            display: block; /* Faz o label ficar em cima do input */
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        /* Input de Texto (CPF) */
+        input[type="text"] {
+            background-color: #40444b; /* Fundo do input */
+            border: 1px solid #202225; /* Borda sutil */
+            border-radius: 5px;
+            color: #dcddde; /* Cor do texto digitado */
+            padding: 12px;
+            font-size: 16px;
+            /* * CORREÇÃO: Usa box-sizing e 100% de largura */
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        /* Efeito de Foco (quando clica no input) */
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #5865F2; /* Borda "Blurple" ao focar */
+        }
+
+        /* Botão Deletar (Estilo Perigoso/Vermelho) */
+        input[type="button"] {
+            background-color: #f04747; /* Vermelho "perigo" do Discord */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Efeito Hover (passar o mouse por cima) */
+        input[type="button"]:hover {
+            background-color: #d93f3f; /* Vermelho um pouco mais escuro */
+        }
+
+        /* * NOVO: Estilo para o link "Voltar" */
+        .btn-link {
+            display: block; 
+            background-color: #4f545c; /* Cinza do Discord (secundário) */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            box-sizing: border-box; 
+            text-decoration: none; /* Remove o sublinhado do link */
+            text-align: center;
+            margin-top: 12px; /* Espaço entre o botão "Deletar" e este */
+        }
+
+        .btn-link:hover {
+            background-color: #5d636d; /* Cinza mais claro no hover */
+        }
+    </style>
+    </head>
+<body>
+    
+    <div class="delete-container">
+        <h1>Delete</h1>
+        
+        <!-- * CORREÇÃO: Agrupado em .form-group para layout correto -->
+        <div class="form-group">
+            <label for="identificadorCPF">CPF:</label>
+            <input type="text" id="identificadorCPF" placeholder="000.000.000-00">
+        </div>
+        
+        <input type="button" onclick="deletarDados()" value="Deletar">
+
+        <!-- * CORREÇÃO: Adicionado o link "voltar" aqui -->
+        <a href="index.html" class="btn-link">Voltar à Página Inicial</a>
+    </div>
+
+    <!-- Removido o link quebrado que estava aqui -->
+    <script src="delete.js"></script>
+</body>
+</html>

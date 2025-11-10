@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET (Estilo Discord)</title>
+    
+    <style>
+        /* Importa a fonte Roboto (parecida com a do Discord) */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            /* Cor de fundo principal do Discord */
+            background-color: #36393f;
+            /* Cor do texto padrão */
+            color: #dcddde;
+            /* Fonte */
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px; /* Espaçamento para o conteúdo não grudar nas bordas */
+            display: flex; /* Para centralizar o container */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Container para a tabela (como um "card" do Discord) */
+        .table-container {
+            background-color: #2f3136; /* Fundo do card */
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* Permite rolagem horizontal se a tabela for muito larga */
+            overflow-x: auto;
+            width: 100%;
+            max-width: 1200px; /* Limite máximo para a largura do card */
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #ffffff; /* Título em branco */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center; /* Centraliza o título */
+        }
+
+        /* Estilização da Tabela */
+        table {
+            width: 100%; /* Faz a tabela ocupar todo o espaço do container */
+            border-collapse: collapse; /* Remove espaço entre as células */
+            color: #dcddde;
+            /* Garante que a tabela não seja menor que o conteúdo */
+            min-width: 800px; 
+        }
+
+        /* Cabeçalho da Tabela (<thead>) */
+        th { /* Usando <th> (header) em vez de <td> */
+            color: #b9bbbe; /* Cor de texto secundária (cinza claro) */
+            font-weight: 600;
+            font-size: 12px; /* Letra menor para cabeçalho */
+            text-transform: uppercase; /* Padrão Discord para labels */
+            text-align: left; /* Alinha o texto à esquerda */
+            padding: 12px 10px;
+            /* Linha escura separando o cabeçalho do corpo */
+            border-bottom: 2px solid #202225; 
+        }
+
+        /* Células do Corpo da Tabela (<tbody>) */
+        td {
+            padding: 15px 10px; /* Mais espaçamento vertical nas linhas */
+            text-align: left;
+            font-size: 14px;
+            /* Linha de separação sutil entre as linhas */
+            border-bottom: 1px solid #40444b;
+            /* Quebra palavras longas (como emails ou IDs) */
+            word-break: break-all;
+        }
+
+        /* Efeito Hover (passar o mouse) nas linhas do corpo */
+        tbody tr:hover {
+            background-color: #393c43; /* Cor de fundo levemente mais clara */
+            cursor: default; /* Pode mudar para 'pointer' se a linha for clicável */
+        }
+
+        /* Remove a borda da última linha para um visual mais limpo */
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* * NOVO: Estilo para o link "Voltar" (para parecer um botão secundário)
+        */
+        .btn-link {
+            display: block; /* Para ter largura e padding */
+            background-color: #4f545c; /* Cinza do Discord (secundário) */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            box-sizing: border-box; 
+            text-decoration: none; /* Remove o sublinhado do link */
+            text-align: center;
+            margin-top: 20px; /* Espaço entre a tabela e este botão */
+        }
+
+        .btn-link:hover {
+            background-color: #5d636d; /* Cinza mais claro no hover */
+        }
+
+    </style>
+    </head>
+<body>
+
+    <div class="table-container">
+        <h1>Cadastrados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id:</th>
+                    <th>Nome:</th>
+                    <th>Sobrenome:</th>
+                    <th>CPF:</th>
+                    <th>Email:</th>
+                    <th>Senha:</th>
+                    <th>Rua:</th>
+                    <th>CEP:</th>
+                    <th>Cidade:</th>
+                    <th>Estado:</th>
+                    <th>Telefone:</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+                <!-- O JavaScript irá preencher esta parte -->
+            </tbody>
+        </table>
+
+        <!-- 
+          * CORREÇÃO: 
+          * Link movido para dentro do .table-container
+          * Aplicada a classe "btn-link".
+          * Corrigido o erro de digitação ("pagna").
+        -->
+        <a href="index.html" class="btn-link">Voltar à Página Inicial</a>
+
+    </div>
+    <script src="get.js"></script>
+</body>
+</html>

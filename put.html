@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT (Estilo Discord)</title>
+
+    <style>
+        /* Importa a fonte Roboto (parecida com a do Discord) */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            /* Fundo principal do Discord */
+            background-color: #36393f;
+            color: #dcddde;
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
+            /* Centraliza o container na página */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 0; /* Espaçamento para rolagem em telas pequenas */
+        }
+
+        /* Container do formulário */
+        .form-container {
+            background-color: #2f3136; /* Fundo do "card" */
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            max-width: 90%;
+            box-sizing: border-box; /* Garante que o padding não quebre o layout */
+        }
+
+        h1 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Agrupador de Label + Input (substitui os <br>) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #b9bbbe;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Estilo unificado para inputs */
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            background-color: #40444b;
+            border: 1px solid #202225;
+            border-radius: 5px;
+            color: #dcddde;
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box; /* Garante que o padding não quebre o layout */
+            transition: border-color 0.2s;
+        }
+
+        /* Foco (clicado) */
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #5865F2; /* Borda "Blurple" */
+        }
+
+        /* Estilo para o input desabilitado (ID) */
+        input:disabled {
+            background-color: #202225; /* Fundo mais escuro */
+            color: #72767d; /* Texto cinza */
+            cursor: not-allowed;
+            border-color: #202225;
+        }
+
+        /* Container para os botões (lado a lado) */
+        .button-group {
+            display: flex;
+            gap: 10px; /* Espaço entre os botões */
+            margin-top: 10px; /* Espaço acima dos botões */
+        }
+
+        /* Botão Padrão (será o "Atualizar") */
+        button {
+            flex: 1; /* Faz os botões dividirem o espaço */
+            background-color: #5865F2; /* "Blurple" */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #4752c4; /* "Blurple" escuro */
+        }
+
+        /* Estilo para o botão secundário (o "Buscar") */
+        button.secondary {
+            background-color: #4f545c; /* Cinza do Discord */
+        }
+
+        button.secondary:hover {
+            background-color: #5d636d; /* Cinza mais claro */
+        }
+
+        /* * NOVO: Estilo para o link "Voltar" (para parecer um botão secundário)
+        */
+        .btn-link {
+            display: block; /* Para ter largura e padding */
+            background-color: #4f545c; /* Cinza do Discord (secundário) */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            box-sizing: border-box; 
+            text-decoration: none; /* Remove o sublinhado do link */
+            text-align: center;
+            margin-top: 12px; /* Espaço entre o grupo de botões e este */
+        }
+
+        .btn-link:hover {
+            background-color: #5d636d; /* Cinza mais claro no hover */
+        }
+
+    </style>
+    </head>
+<body>
+
+    <div class="form-container">
+        <h1>PUT</h1>
+        
+        <div class="form-group">
+            <label for="identificador">ID:</label>
+            <input type="text" id="identificador" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="identificadorCPF">CPF:</label>
+            <input type="text" id="identificadorCPF" placeholder="Use este para buscar">
+        </div>
+
+        <div class="form-group">
+            <label for="nomeAtualizar">Nome:</label>
+            <input type="text" id="nomeAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="sobrenomeAtualizar">Sobrenome:</label>
+            <input type="text" id="sobrenomeAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="emailAtualizar">Email:</label>
+            <input type="text" id="emailAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="senhaAtualizar">Senha:</label>
+            <input type="password" id="senhaAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="ruaAtualizar">Rua:</label>
+            <input type="text" id="ruaAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="cepAtualizar">CEP:</label>
+            <input type="number" id="cepAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="cidadeAtualizar">Cidade:</label>
+            <input type="text" id="cidadeAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="estadoAtualizar">Estado:</label>
+            <input type="text" id="estadoAtualizar">
+        </div>
+
+        <div class="form-group">
+            <label for="telefoneAtualizar">Telefone:</label>
+            <input type="number" id="telefoneAtualizar">
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="secondary" onclick="buscarDados()">Buscar</button>
+            <button type="button" onclick="atualizarDados()">Atualizar</button>
+        </div>
+
+        <!-- 
+          * CORREÇÃO: 
+          * Link movido para dentro do .form-container
+          * Aplicada a classe "btn-link".
+          * Corrigido o erro de digitação ("pagna").
+        -->
+        <a href="index.html" class="btn-link">Voltar à Página Inicial</a>
+
+    </div>
+    <script src="put.js"></script>
+</body>
+</html>
